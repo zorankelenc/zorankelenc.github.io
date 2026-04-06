@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Work in progress</title>
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --card: #ffffff;
+      --text: #0f172a;
+      --muted: #475569;
+      --border: #dbe3ef;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 15% 20%, #ffffff 0%, transparent 38%),
+        radial-gradient(circle at 85% 80%, #eaf1ff 0%, transparent 34%),
+        var(--bg);
+      padding: 1.25rem;
+    }
+
+    main {
+      width: min(560px, 100%);
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 2.25rem 1.75rem;
+      text-align: center;
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      line-height: 1.2;
+      letter-spacing: 0.01em;
+    }
+
+    p {
+      margin: 0.8rem 0 0;
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Work in progress</h1>
+    <p>This website is currently being updated.</p>
+  </main>
+</body>
+</html>
