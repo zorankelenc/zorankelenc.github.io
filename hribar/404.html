@@ -12,7 +12,7 @@
     </script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="csrf-token" content="IDGkO1r1bYz3eyOdIL9rHwztSnBSWX6jCDGR2857">
+    <meta name="csrf-token" content="mlQo0zVhXe52g1734vs0ak2iNZxxKxs9XkqkhlBa">
     <title>GP Hribar — gradbeništvo in prevozništvo</title>
                 <meta name="description" content="GP Hribar d.o.o.: gradbena dela, zemeljska dela, prevozi in zunanje ureditve. Lukovica in okolica.">
                 <meta property="og:title" content="GP Hribar — gradbeništvo in prevozništvo">
@@ -29,6 +29,7 @@
     <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600,700|roboto-slab:600,700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://zorankelenc.github.io/hribar/assets/site.css">
     <script src="https://zorankelenc.github.io/hribar/assets/site.js" defer></script>
+    <script src="https://zorankelenc.github.io/hribar/assets/analytics-events.js" defer></script>
     <noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
         <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 <script type="application/ld+json">
@@ -326,8 +327,9 @@ Naša prednost je zanesljivost, natančnost in osebni pristop. Vsak projekt obra
                     <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
                 </button>
 
-                <div x-ref="galleryRail" @scroll="checkScroll()" class="gallery-scroll overflow-x-scroll px-4 pb-4 lg:px-6">
-                    <div class="grid grid-flow-col grid-rows-2 auto-cols-[minmax(240px,280px)] gap-4 sm:auto-cols-[minmax(260px,320px)] snap-x snap-mandatory">
+                <div x-ref="galleryRail" @scroll="checkScroll()" class="gallery-scroll flex overflow-x-scroll pb-4" style="justify-content: safe center">
+                    <div class="shrink-0" style="min-width: 1rem"></div>
+                    <div class="grid shrink-0 grid-flow-col grid-rows-2 auto-cols-[minmax(240px,280px)] gap-4 sm:auto-cols-[minmax(260px,320px)] snap-x snap-mandatory">
                                                                                 <article class="snap-start overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
                                 <button
                                     type="button"
@@ -569,6 +571,7 @@ Naša prednost je zanesljivost, natančnost in osebni pristop. Vsak projekt obra
                                 </button>
                             </article>
                                             </div>
+                    <div class="shrink-0" style="min-width: 1rem"></div>
                 </div>
             </div>
 
@@ -653,7 +656,7 @@ Naša prednost je zanesljivost, natančnost in osebni pristop. Vsak projekt obra
                             const res = await fetch('https://zorankelenc.github.io/hribar/contact', {
                                 method: 'POST',
                                 headers: {
-                                    'X-CSRF-TOKEN': 'IDGkO1r1bYz3eyOdIL9rHwztSnBSWX6jCDGR2857',
+                                    'X-CSRF-TOKEN': 'mlQo0zVhXe52g1734vs0ak2iNZxxKxs9XkqkhlBa',
                                     'Accept': 'application/json',
                                 },
                                 body: data,
