@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="csrf-token" content="RdukrVutawQgesrgh5dD1xxzAAsznjKU1gLF2DED">
+    <meta name="csrf-token" content="RtoTMjnmWI2qHbgA7vJLLwJc9KtnIfDA1RIy1CZk">
     <title>GP Hribar — gradbeništvo in prevozništvo</title>
                 <meta name="description" content="GP Hribar d.o.o.: gradbena dela, zemeljska dela, prevozi in zunanje ureditve. Lukovica in okolica.">
                 <meta property="og:title" content="GP Hribar — gradbeništvo in prevozništvo">
@@ -59,8 +59,7 @@
             <span class="inline-flex items-center justify-center transition-all duration-200" :class="scrolled ? 'h-10 md:h-14' : 'h-14'">
                 <img src="https://zorankelenc.github.io/hribar/images/hribar_logo_nav.png" alt="GP Hribar" class="gp-logo-nav block w-auto transition-all duration-200" :class="scrolled ? 'h-10 md:h-14' : 'h-14'" width="188" height="70">
             </span>
-            <span class="font-serif font-bold tracking-tight text-brand-blue transition-all duration-200" :class="scrolled ? 'text-base md:text-xl' : 'text-lg md:text-xl'">GP Hribar d.o.o.</span>
-            <a x-show="topbarHidden" x-transition.opacity x-cloak href="tel:041631035" class="ml-2 hidden items-center gap-1.5 text-sm text-slate-500 hover:text-brand-blue md:flex">
+            <a x-show="scrolled" x-transition.opacity x-cloak href="tel:041631035" class="hidden items-center gap-1.5 text-sm text-slate-500 hover:text-brand-blue md:flex">
                 <svg class="h-3.5 w-3.5 text-brand-orange" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
                 041 631 035
             </a>
@@ -112,8 +111,12 @@
     </div>
         <div class="mt-10 grid gap-10 lg:grid-cols-[1.3fr_0.7fr]">
             <div class="prose prose-lg prose-slate max-w-none text-slate-600">
-                <p class="whitespace-pre-line leading-relaxed">Smo gradbeno podjetje, ki že več kot 20 let strokovno in kakovostno izvajamo gradbena dela, od prvega izkopa za postavitev temeljne plošče in vse do končne zunanje ureditve. Ukvarjamo se tudi s prevozništvom ter ponujamo odkup in prodajo gradbenega materiala.</p>
-                <p class="mt-6 rounded-xl border border-sky-100 bg-sky-50/80 px-5 py-4 text-center text-lg font-semibold text-brand-blue">Več kot 20 let izkušenj in zanesljivih projektov.</p>
+                <p class="whitespace-pre-line leading-relaxed">GP Hribar d.o.o. je družinsko gradbeno podjetje s sedežem v Lukovici pri Domžalah. Strokovno in kakovostno izvajamo gradbena dela — od prvega izkopa in postavitve temeljne plošče do končne zunanje ureditve.
+
+Specializirani smo za nizke gradnje, zemeljska dela in komunalno urejanje. Ukvarjamo se tudi s prevozništvom ter ponujamo odkup in prodajo gradbenega materiala.
+
+Naša prednost je zanesljivost, natančnost in osebni pristop. Vsak projekt obravnavamo individualno in poskrbimo, da je delo opravljeno po najvišjih standardih.</p>
+                <p class="mt-6 rounded-xl border border-sky-100 bg-sky-50/80 px-5 py-4 text-center text-lg font-semibold text-brand-blue">Zanesljiv partner za vaš gradbeni projekt.</p>
             </div>
             <div class="flex flex-col gap-3 lg:gap-4">
                 <div class="grid grid-cols-3 gap-3 lg:grid-cols-1">
@@ -245,10 +248,6 @@
                 ></iframe>
             </div>
         </div>
-        <p class="mx-auto mt-6 max-w-2xl text-center text-xs text-sky-100/80">
-            Z uporabo predvajanja z YouTuba lahko pride do piškotkov in sledenja s strani ponudnika. Več v
-            <a href="https://policies.google.com/privacy" class="underline hover:text-white" target="_blank" rel="noopener noreferrer">pravilniku o zasebnosti Google</a>.
-        </p>
     </div>
 </section>
 
@@ -304,7 +303,6 @@
         <div class="mx-auto max-w-3xl text-center">
             <h2 class="font-serif text-3xl font-bold text-brand-blue md:text-4xl">Galerija</h2>
             <div class="mx-auto mt-3 h-1 w-16 rounded-full bg-brand-orange"></div>
-            <p class="mt-4 text-lg text-slate-600">Izbor opravljenih projektov.</p>
         </div>
 
                     <div class="relative mt-12" x-init="$nextTick(() => checkScroll())">
@@ -626,60 +624,146 @@
         <div class="mx-auto max-w-3xl text-center">
             <h2 class="font-serif text-3xl font-bold text-brand-blue md:text-4xl">Kontakt</h2>
             <div class="mx-auto mt-3 h-1 w-16 rounded-full bg-brand-orange"></div>
-            <p class="mt-4 text-lg text-slate-600">Za brezplačni ogled in ponudbo nas kontaktirajte.</p>
         </div>
         <div class="mt-12 grid gap-10 lg:grid-cols-2">
-            <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm lg:p-8">
+            <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm lg:p-8"
+                x-data="{
+                    step: 'form',
+                    sending: false,
+                    error: '',
+                    fieldErrors: {},
+                    autoSubmit: true,
+                    turnstileWidgetId: null,
+                    successMessage: 'Hvala za sporočilo. Kmalu vas bomo kontaktirali.',
+                    errorMessage: 'Prišlo je do napake. Preverite vnos in poskusite znova.',
+                    async submitForm() {
+                        this.sending = true;
+                        this.error = '';
+                        this.fieldErrors = {};
+                        const form = this.$refs.contactForm;
+                        const data = new FormData(form);
+                        try {
+                            const res = await fetch('https://zorankelenc.github.io/hribar/contact', {
+                                method: 'POST',
+                                headers: {
+                                    'X-CSRF-TOKEN': 'RtoTMjnmWI2qHbgA7vJLLwJc9KtnIfDA1RIy1CZk',
+                                    'Accept': 'application/json',
+                                },
+                                body: data,
+                            });
+                            const contentType = res.headers.get('content-type') || '';
+                            if (res.status === 422 && contentType.includes('json')) {
+                                const json = await res.json();
+                                this.fieldErrors = json.errors || {};
+                                this.error = Object.values(this.fieldErrors).flat()[0] || this.errorMessage;
+                                this.resetForRetry();
+                            } else if (res.ok || res.redirected) {
+                                this.step = 'success';
+                            } else {
+                                console.error('Contact form error:', res.status, await res.text().catch(() => ''));
+                                this.error = this.errorMessage;
+                                this.resetForRetry();
+                            }
+                        } catch (e) {
+                            console.error('Contact form fetch error:', e);
+                            this.error = this.errorMessage;
+                            this.resetForRetry();
+                        }
+                        this.sending = false;
+                    },
+                    resetForRetry() {
+                        this.step = 'form';
+                        this.autoSubmit = false;
+                        if (typeof turnstile !== 'undefined' && this.turnstileWidgetId != null) turnstile.remove(this.turnstileWidgetId);
+                        this.turnstileWidgetId = null;
+                    },
+                    showTurnstile() {
+                        this.autoSubmit = true;
+                        this.step = 'verify';
+                        this.$nextTick(() => {
+                            this.turnstileWidgetId = turnstile.render(this.$refs.turnstileBox, {
+                                sitekey: '1x00000000000000000000AA',
+                                callback: () => { if (this.autoSubmit) this.submitForm(); },
+                            });
+                        });
+                    },
+                }"
+            >
                 <h3 class="text-lg font-bold text-brand-blue">Pošljite povpraševanje</h3>
-                                                        <form method="post" action="https://zorankelenc.github.io/hribar/contact" class="mt-6 space-y-4">
-                        <input type="hidden" name="_token" value="RdukrVutawQgesrgh5dD1xxzAAsznjKU1gLF2DED" autocomplete="off">                        <div class="absolute -left-[9999px] h-0 w-0 overflow-hidden opacity-0" aria-hidden="true">
-                            <label for="website">Ne izpolnjujte</label>
-                            <input type="text" name="website" id="website" tabindex="-1" autocomplete="off">
-                        </div>
-                        <div>
-                            <label for="name" class="block text-sm font-medium text-slate-700">Ime in priimek</label>
-                            <input type="text" name="name" id="name" required value="" class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-brand-blue-light focus:outline-none focus:ring-1 focus:ring-brand-blue-light">
-                                                    </div>
-                        <div>
-                            <label for="email" class="block text-sm font-medium text-slate-700">E-pošta</label>
-                            <input type="email" name="email" id="email" required value="" class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-brand-blue-light focus:outline-none focus:ring-1 focus:ring-brand-blue-light">
-                                                    </div>
-                        <div>
-                            <label for="phone" class="block text-sm font-medium text-slate-700">Telefon</label>
-                            <input type="tel" name="phone" id="phone" value="" class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-brand-blue-light focus:outline-none focus:ring-1 focus:ring-brand-blue-light">
-                        </div>
-                        <div>
-                            <label for="message" class="block text-sm font-medium text-slate-700">Sporočilo</label>
-                            <textarea name="message" id="message" rows="5" required class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-brand-blue-light focus:outline-none focus:ring-1 focus:ring-brand-blue-light"></textarea>
-                                                    </div>
-                        <div class="cf-turnstile" data-sitekey="1x00000000000000000000AA" data-theme="light"></div>
-                                                                        <p class="text-xs text-slate-500">
-                            Obrazec je zaščiten z Cloudflare Turnstile.
-                            <a href="https://www.cloudflare.com/privacypolicy/" class="text-brand-blue-light underline" target="_blank" rel="noopener noreferrer">Pravilnik o zasebnosti Cloudflare</a>.
-                        </p>
-                        <button type="submit" class="w-full rounded-full bg-brand-orange py-3 text-sm font-bold text-white hover:bg-brand-orange-dark">Pošlji sporočilo</button>
-                    </form>
+
+                <div x-show="step === 'success'" x-cloak class="mt-4 rounded-lg bg-emerald-50 px-4 py-3 text-emerald-900" x-text="successMessage"></div>
+
+                <template x-if="step !== 'success'">
+                    <div>
+                        <div x-show="error" x-cloak class="mt-4 rounded-lg bg-red-50 px-4 py-3 text-sm text-red-900" x-text="error"></div>
+                        <form x-ref="contactForm" class="mt-6 space-y-4" @submit.prevent="submitForm()">
+                            <div class="absolute -left-[9999px] h-0 w-0 overflow-hidden opacity-0" aria-hidden="true">
+                                <label for="website">Ne izpolnjujte</label>
+                                <input type="text" name="website" id="website" tabindex="-1" autocomplete="off">
                             </div>
-            <div class="space-y-6">
-                <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-slate-700">Ime in priimek</label>
+                                <input type="text" name="name" id="name" required class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-brand-blue-light focus:outline-none focus:ring-1 focus:ring-brand-blue-light">
+                                <p x-show="fieldErrors.name" x-text="fieldErrors.name?.[0]" class="mt-1 text-sm text-red-600" x-cloak></p>
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-slate-700">E-pošta</label>
+                                <input type="email" name="email" id="email" required class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-brand-blue-light focus:outline-none focus:ring-1 focus:ring-brand-blue-light">
+                                <p x-show="fieldErrors.email" x-text="fieldErrors.email?.[0]" class="mt-1 text-sm text-red-600" x-cloak></p>
+                            </div>
+                            <div>
+                                <label for="phone" class="block text-sm font-medium text-slate-700">Telefon</label>
+                                <input type="tel" name="phone" id="phone" class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-brand-blue-light focus:outline-none focus:ring-1 focus:ring-brand-blue-light">
+                            </div>
+                            <div>
+                                <label for="message" class="block text-sm font-medium text-slate-700">Sporočilo</label>
+                                <textarea name="message" id="message" rows="5" required class="mt-1 w-full rounded-lg border border-slate-300 px-3 py-2 text-sm focus:border-brand-blue-light focus:outline-none focus:ring-1 focus:ring-brand-blue-light"></textarea>
+                                <p x-show="fieldErrors.message" x-text="fieldErrors.message?.[0]" class="mt-1 text-sm text-red-600" x-cloak></p>
+                            </div>
+
+                            <div x-show="step === 'form'">
+                                <button type="button" @click="showTurnstile()" class="w-full rounded-full bg-brand-orange py-3 text-sm font-bold text-white hover:bg-brand-orange-dark">Pošlji sporočilo</button>
+                            </div>
+                            <div x-show="step === 'verify'" x-cloak class="space-y-3">
+                                <div x-ref="turnstileBox"></div>
+                                <p x-show="!sending" class="text-xs text-slate-500">Potrdite, da niste robot.</p>
+                                <p x-show="sending" class="text-sm font-medium text-brand-blue">Pošiljam...</p>
+                            </div>
+                        </form>
+                    </div>
+                </template>
+            </div>
+            <div class="space-y-4">
+                <div class="flex flex-col rounded-2xl border border-slate-200 bg-white p-8 shadow-sm lg:p-10">
                     <h3 class="text-lg font-bold text-brand-blue">Kontaktni podatki</h3>
-                    <ul class="mt-4 space-y-4 text-slate-700">
+                    <ul class="mt-6 flex-1 space-y-6 text-slate-700">
                         <li class="flex items-start gap-3">
-                            <span class="mt-0.5 shrink-0 text-brand-orange">
-                                <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-                            </span>
-                            <span class="whitespace-pre-line text-base font-medium text-slate-700">Preserje pri Lukovici 1E
-1225 Lukovica</span>
-                        </li>
+    <span class="mt-0.5 shrink-0 text-brand-orange">
+                    <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            </span>
+            <span class="text-base font-medium text-slate-700"><span class="whitespace-pre-line">Preserje pri Lukovici 1E
+1225 Lukovica</span></span>
+    </li>
                         <li class="flex items-start gap-3">
-                            <span class="mt-0.5 shrink-0 text-brand-orange"><svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg></span>
-                            <a href="tel:041631035" class="text-base font-medium text-slate-700 hover:underline">041 631 035</a>
-                        </li>
+    <span class="mt-0.5 shrink-0 text-brand-orange">
+                    <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+            </span>
+            <a href="tel:041631035" class="text-base font-medium text-slate-700 hover:underline">041 631 035</a>
+    </li>
                         <li class="flex items-start gap-3">
-                            <span class="mt-0.5 shrink-0 text-brand-orange"><svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg></span>
-                            <a href="mailto:gphribar@gmail.com" class="text-base font-medium text-slate-700 hover:underline">gphribar@gmail.com</a>
-                        </li>
+    <span class="mt-0.5 shrink-0 text-brand-orange">
+                    <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            </span>
+            <a href="mailto:gphribar@gmail.com" class="text-base font-medium text-slate-700 hover:underline">gphribar@gmail.com</a>
+    </li>
                     </ul>
+                    <div class="mt-8 border-t border-slate-100 pt-6 text-sm text-slate-500">
+                        Delujemo po osrednji Sloveniji — Ljubljana, Domžale, Kamnik in okolica.
+                    </div>
+                </div>
+                <div class="rounded-2xl border border-sky-100 bg-sky-50/80 p-6 text-center shadow-sm">
+                    <h3 class="text-base font-semibold text-brand-blue">Brezplačen ogled in ponudba</h3>
+                    <p class="mt-2 text-sm leading-relaxed text-slate-600">Pokličite nas ali izpolnite obrazec — z veseljem vas obiščemo in pripravimo ponudbo brez obveznosti.</p>
                 </div>
             </div>
         </div>
